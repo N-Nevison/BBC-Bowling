@@ -8,90 +8,78 @@ public class Player
     private List<Integer> FirstBall = new ArrayList<Integer>();	 //Keeps track of the first ball, as an int.
     private List<Integer> SecondBall = new ArrayList<Integer>(); //Keeps track of the second ball as an int.
     private int ExtraBalls;	//Int for extra ball if needed.
-    private int PlayerScore;
-    private int ExtraBallCount;
+    private int PlayerScore; //Int for player score.
+    private int ExtraBallCount; //Int for extra ball count.
 
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
-   // Retrieves the players name from the one in-putted on the interface.
-    public String getName()
+    public String getName() //Retrieves the players name from the one in-putted on the interface.
 	{
-        return PlayerName;
+        return PlayerName; //Returns the players name.
     }
 	
-	// Uses the name received and assigns/stores it.
-    public Player(String Name)
+    public Player(String Name) //Uses the name received and assigns/stores it.
 	{
-        PlayerName = Name;
+        PlayerName = Name; //Sets player name to equal name.
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	// Retrieves the first ball number input from the interface.
-    public int checkFirstBall(int Frame) 
+    public int checkFirstBall(int Frame) //Retrieves the first ball number input from the interface.
 	{
-        return FirstBall.get(Frame);
+        return FirstBall.get(Frame); //Returns the first ball for the current frame.
     }
    
-	// Uses the number and assigns/stores it in the relevant frame.
-    public void setFirstBall(int Frame, int Score) throws IOException
+    public void setFirstBall(int Frame, int Score) throws IOException // Uses the number and assigns/stores it in the relevant frame.
 	{
-        FirstBall.add(Score);
+        FirstBall.add(Score); //Adds the score for the first ball.
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-   // Retrieves the second ball number input from the interface.
-    public int checkSecondBall(int Frame) 
+    public int checkSecondBall(int Frame) //Retrieves the second ball number input from the interface.
 	{
-        return SecondBall.get(Frame);
+        return SecondBall.get(Frame); //Returns the second ball for the current frame.
     }
     
-    //  Uses the number and assigns/stores it in the relevant frame.
-    public void setSecondball(int Frame, int Score) throws IOException
+    public void setSecondball(int Frame, int Score) throws IOException // Uses the number and assigns/stores it in the relevant frame.
 	{
-        SecondBall.add(Score);
+        SecondBall.add(Score); //Adds the score for the second ball.
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	// Retrieves the extra ball number input from the interface id needed.
-    public int checkExtraBalls() 
+    public int checkExtraBalls() //Retrieves the extra ball number input from the interface id needed.
 	{
-        return ExtraBalls;
+        return ExtraBalls; //Returns extra ball.
     }
 	
-	//  Uses the number and assigns/stores it in the relevant frame.
-    public void setExtraBalls(int Score) 
+    public void setExtraBalls(int Score) //Uses the number and assigns/stores it in the relevant frame.
 	{
-        ExtraBalls = Score;
+        ExtraBalls = Score; //Extra balls equal score.
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    // Retrieves the players current total score.
-    public int checkPlayerScore() 
+    public int checkPlayerScore() //Retrieves the players current total score.
 	{
-        return PlayerScore;
+        return PlayerScore; //Returns players score.
     }
 	
-	// Updates the players total score.
-    public void setPlayerScore(int Score) 
+    public void setPlayerScore(int Score) //Updates the players total score.
 	{
-        PlayerScore = PlayerScore + Score;
+        PlayerScore = PlayerScore + Score; //Players score equals there current score plus there fram score.
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-    // Retrieves the Extra Ball Count.
-    public int checkExtraBallCount() 
+    public int checkExtraBallCount()  //Retrieves the Extra Ball Count.
 	{
-        return ExtraBallCount;
+        return ExtraBallCount; //Returns extra ball count.
     }
 
-	// Updates the players Extra Ball Count.
-    public void setExtraBallCount(int ExtraBallCount) 
+    public void setExtraBallCount(int ExtraBallCount) //Updates the players Extra Ball Count.
 	{
-        ExtraBallCount = ExtraBallCount;
+        ExtraBallCount = ExtraBallCount; //Extra ball count equals extra ball count.
     }
 }

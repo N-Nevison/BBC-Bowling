@@ -75,7 +75,7 @@ public class ScoreBoard
 			
 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             
-			System.out.println("|___|___|___|___|___|___|___|___|___|_____|"); //Prints out the total score.
+			System.out.println("|___|___|___|___|___|___|___|___|___|_____|"); //Prints out the total score for each frame.
             System.out.println("\n");
         }
     }

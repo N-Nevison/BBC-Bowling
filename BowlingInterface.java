@@ -24,7 +24,7 @@ public class BowlingInterface
             Background.Message(PlayerList.get(0).getName()); //Prints message.
             Background.Menu(); //Loads the menu.
 
-            selection = new BufferedReader(new InputStreamReader(System.in)).readLine(); // Gets menu selection number.
+            selection = new BufferedReader(new InputStreamReader(System.in)).readLine(); //Gets menu selection number.
             
             switch(Integer.parseInt(selection)) //Gives the user the selection of the options.
 			{

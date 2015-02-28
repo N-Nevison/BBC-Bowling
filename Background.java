@@ -32,7 +32,7 @@ public class Background
 	{
         int TotalScore = 0; //Creates the total score int.
         int ExtraBallCount = Player.checkExtraBallCount(); //Creates an extra ball equal to the players extra ball count.
-        System.out.println("\n It's" + Player.getName() + "'s Go To Bowl\n"); //Prints out who's up next to bowl.
+        System.out.println("\nIt's " + Player.getName() + "'s Go To Bowl\n"); //Prints out who's up next to bowl.
         System.out.println("Enter Your Score For Your First Bowl:"); //Asks the user what they scored.
         int Score = getScore(TotalScore); //Creates the score int and set it to equal total score.
         TotalScore = TotalScore + Score; //Sets total score to equal score plus previous total score.
@@ -72,149 +72,141 @@ public class Background
                 Player.setPlayerScore(Score); //Sets the players score to equal the score.
             }
             TotalScore = TotalScore + Score; //Updates the total score.
-            if (TotalScore == 10) { // Checks for spare
-                System.out.println("You have bowled a spare!!");
+            if (TotalScore == 10) { // Checks for spare.
+                System.out.println("You Have Bowled A Spare!!"); //Tells they player they have scored a spare.
             }
         }
         
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-        if ((Player.checkFirstBall(Frame)) == 10) { // Updates counter if the player got a strike.
-            ExtraBallCount += 2; //Extra ball count plus 2
+        if ((Player.checkFirstBall(Frame)) == 10) { //If its the players first ball of the frame.
+            ExtraBallCount += 2; //Extra ball count plus 2..
         }
-        else if (TotalScore == 10) // Updates extra ball counter if the player got a spare.
+        else if (TotalScore == 10) //Else if total score is 10.
 		{ 
-            ExtraBallCount += 1; //Extra ball count plus 1
+            ExtraBallCount += 1; //Extra ball count plus 1.
         }
-        Player.setExtraBallCount(ExtraBallCount);  //Updates the players current score.
-        System.out.println(Player.getName() + "'s total Score is " + Player.checkPlayerScore()); //Tells the player there score.
+        Player.setExtraBallCount(ExtraBallCount);  //Updates the players extra ball count.
+        System.out.println(Player.getName() + "'s Total Score Is " + Player.checkPlayerScore()); //Tells the player there score.
     } 
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-    /*
-    * Special system for scoring the last Frame.
-    * Includes bonus ball if the Player got a strike or spare.
-    */
-    public void LastFrame(Player Player, int Frame) throws IOException 
+    public void LastFrame(Player Player, int Frame) throws IOException //Separate for the last frame.
 	{
-        int TotalScore = 0;
-        int ExtraBallCount = Player.checkExtraBallCount();
-        System.out.println("\n" + Player.getName() + " is up!\n");
+        int TotalScore = 0; //Sets the total score.
+        int ExtraBallCount = Player.checkExtraBallCount(); //Sets the extra ball count to equal the players extra ball count.
+        System.out.println("\n" + Player.getName() + " Is Up!\n"); //Tells the player who is bowling next.
         
-        // Bowl first ball
-        System.out.println("Enter your Score for ball 1:");
-        int Score = getScore(TotalScore);
-        TotalScore = TotalScore + Score;
-        Player.setFirstBall(Frame, Score);
+        System.out.println("Enter Your Score For Ball 1:"); //Asks for the score for the first ball.
+        int Score = getScore(TotalScore); //Sets score to equal the total score.
+        TotalScore = TotalScore + Score; //Updates the total score.
+        Player.setFirstBall(Frame, Score); //Sets the players frame and score.
         
-        // Update Player Score
-        if (ExtraBallCount == 1 | ExtraBallCount == 2) 
+        if (ExtraBallCount == 1 | ExtraBallCount == 2)  //If the extra ball count is 1 or 2.
 		{
-            Player.setPlayerScore(Score + Score);
-            ExtraBallCount -= 1;
+            Player.setPlayerScore(Score + Score); //Sets the players score to equal score + score.
+            ExtraBallCount -= 1; //Extra ball count - 1.
         }
         
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		if (ExtraBallCount == 3) 
+		if (ExtraBallCount == 3)  //If the extra ball count is 3.
 		{
-            Player.setPlayerScore(Score + Score + Score);
-            ExtraBallCount -= 2;
+            Player.setPlayerScore(Score + Score + Score); //Sets the players score to equal score + score + score.
+            ExtraBallCount -= 2; //Extra ball count - 2.
         }
         else 
 		{
-            Player.setPlayerScore(Score);
+            Player.setPlayerScore(Score); //Sets the players score to equal score.
         }
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-        // Bowl second ball - system for when Player bowled a strike on the first ball
-        if (TotalScore == 10)
+		//System for final frame, second ball (if strike on first)
+        if (TotalScore == 10) //If total score is equal to 10.
 		{ 
-            System.out.println("You have bowled a strike!!");
-            ExtraBallCount += 2;
-            System.out.println("Enter your Score for ball 2:");
-            Score = getScore();
-            Player.setSecondball(Frame, Score);
+            System.out.println("You Have Bowled A Strike!!"); //Tell the player they bowled a strike.
+            ExtraBallCount += 2; //Updates the extra ball count to equal 2.
+            System.out.println("\nEnter Your Score For Ball 2:"); //Asks user for the second ball score.
+            Score = getScore(); //Gets the score.
+            Player.setSecondball(Frame, Score); //Sets the plays frame and score.
             
-			if (ExtraBallCount == 1 | ExtraBallCount == 2) 
+			if (ExtraBallCount == 1 | ExtraBallCount == 2) //If the extra ball count is 1 or 2.
 			{
-                Player.setPlayerScore(Score);
-                ExtraBallCount -= 1;
+                Player.setPlayerScore(Score); //Sets the players score to equal score.
+                ExtraBallCount -= 1;  //Extra ball count - 1.
             }
            
-		   if (ExtraBallCount == 3) {
-                Player.setPlayerScore(Score + Score);
-                ExtraBallCount -= 2;
+		   if (ExtraBallCount == 3) { //If the extra ball count is 3.
+                Player.setPlayerScore(Score + Score); //Sets the players score to equal score + score.
+                ExtraBallCount -= 2;  //Extra ball count - 2.
             }
         }
         // Bowl second ball - system for when Player did not bowl a strike on the first ball
         else {
-            System.out.println("Enter your Score for ball 2:");
-            Score = getScore(TotalScore);
-            Player.setSecondball(Frame, Score);
-            TotalScore = TotalScore + Score;
-            if (ExtraBallCount == 1 | ExtraBallCount == 2) 
+            System.out.println("Enter Your Score For Ball 2:"); //Asks user for the second ball score.
+            Score = getScore(TotalScore); //Gets the score.
+            Player.setSecondball(Frame, Score); //Sets the plays frame and score.
+            TotalScore = TotalScore + Score; //Updates the total score.
+            if (ExtraBallCount == 1 | ExtraBallCount == 2) //If the extra ball count is 1 or 2.
 			{
-                Player.setPlayerScore(Score + Score);
-                ExtraBallCount -= 1;
+                Player.setPlayerScore(Score + Score); //Sets the players score to equal score + score.
+                ExtraBallCount -= 1;  //Extra ball count - 1.
             }
             else 
 			{
-                Player.setPlayerScore(Score);
+                Player.setPlayerScore(Score); //Sets the players score to equal score.
             }
         }
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-        // Bowl bonus bowl if Player bowled any strikes or a spare this Frame  
-        if (TotalScore == 10) 
+		//System for final frame, third ball (if strike on second)
+        if (TotalScore == 10) //If total score is equal to 10.
 		{
-            System.out.println("Strike");
-            System.out.println("You have earned a bonus ball! Enter your Score for the bonus ball:");
-            Score = getScore();
-            Player.setExtraBallCount(Score);
-            if (Score == 10) 
+            System.out.println("Strike"); //Tells the player they scored a strike.
+            System.out.println("You Have Earned A Extra Ball!\n"); //Tells the player they have earned a extra ball
+			System.out.println("Enter Your Score For The Extra Ball:");//Asks for there extra ball score.
+            Score = getScore(); //Gets the score.
+            Player.setExtraBallCount(Score); //Sets the players Extra ball count score.
+            if (Score == 10) //If score = 10
 			{
-                System.out.println("Strike!!!");
+                System.out.println("Strike"); //Tells the player they scored a strike.
             }
-            Player.setPlayerScore(Score);
+            Player.setPlayerScore(Score); //Sets the players score to equal score.
         }
         
-        System.out.println(Player.getName() + "'s total Score is " + Player.checkPlayerScore());
+        System.out.println(Player.getName() + "'s Total Score Is " + Player.checkPlayerScore()); //Tells the player there total score.
 
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-    /*
-    * Gets the bowling Score from the Player
-    */
     public int getScore(int TotalScore) throws IOException
 	{
-        boolean validScore = false;
-        int tempScore = 0;
-        while (validScore == false) 
+        boolean validScore = false;  //Creates valid score boolean
+        int tempScore = 0; //Creates Int for temp score and sets it to 0
+        while (validScore == false) //While valid score is false.
 		{
-            String temp = new BufferedReader(new InputStreamReader(System.in)).readLine();
-            while (temp.equals("")) 
+            String temp = new BufferedReader(new InputStreamReader(System.in)).readLine(); //Creates a a string called temp and sets it to equal.
+            while (temp.equals("")) //While temp is equal to "" blank.
 			{
-                System.out.println("Please enter a number.");
-                temp = new BufferedReader(new InputStreamReader(System.in)).readLine();
+                System.out.println("Please Enter A Number."); //Asks user for a number.
+                temp = new BufferedReader(new InputStreamReader(System.in)).readLine(); 
             }
-            tempScore = Integer.parseInt(temp);
-            if ((tempScore < 0) | (tempScore + TotalScore > 10) )
+            tempScore = Integer.parseInt(temp); 
+            if ((tempScore < 0) | (tempScore + TotalScore > 10) ) //If temp score is less than 0 or temp score + total score is greater than 10.
 			{
-                System.out.println("You have entered an invalid number. Please try again.");
+                System.out.println("You Have Entered An Invalid Number. Please Try Again."); //Tells the user they have entered something invalid.
             }
             else 
 			{
-                validScore = true;
+                validScore = true; //Sets valid score to be true.
             }            
         } 
-       return tempScore;
-    } // end GetScore method
+       return tempScore; //Returns temp score.
+    } //Exits
     
     /*
     * Gets the bowling Scores for the bonus round
@@ -226,18 +218,18 @@ public class Background
         while (validScore == false) 
 		{
             String temp = new BufferedReader(new InputStreamReader(System.in)).readLine();
-            if (temp == null)
+            if (temp == null) //If temp is equal to NULL.
 			{
-                System.out.println("Please enter a number.");
+                System.out.println("Please Enter A Number.");  //Asks user for a number.
             }
             tempScore = Integer.parseInt(temp);
-            if (tempScore < 0 | tempScore > 10)
+            if (tempScore < 0 | tempScore > 10) //If temp score is less than 0 or temp score + total score is greater than 10.
 			{
-                System.out.println("You have entered an invalid number. Please try again.");
+                System.out.println("You Have Entered An Invalid Number. Please Try Again."); //Tells the user they have entered something invalid.
             }
             else 
 			{
-                validScore = true;
+                validScore = true; //Sets valid score to be true.
             }            
         } 
        return tempScore;
