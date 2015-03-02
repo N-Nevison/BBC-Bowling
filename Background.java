@@ -87,7 +87,6 @@ public class Background
             ExtraBallCount += 1; //Extra ball count plus 1.
         }
         Player.setExtraBallCount(ExtraBallCount);  //Updates the players extra ball count.
-        System.out.println(Player.getName() + "'s Total Score Is " + Player.checkPlayerScore()); //Tells the player there score.
     } 
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -176,9 +175,6 @@ public class Background
             }
             Player.setPlayerScore(Score); //Sets the players score to equal score.
         }
-        
-        System.out.println(Player.getName() + "'s Total Score Is " + Player.checkPlayerScore()); //Tells the player there total score.
-
     }
     
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -222,7 +218,7 @@ public class Background
 			{
                 System.out.println("Please Enter A Number.");  //Asks user for a number.
             }
-            tempScore = Integer.parseInt(temp);
+            tempScore = Integer.parseInt(temp); //Sets tempscore to equal paseInt of temp.
             if (tempScore < 0 | tempScore > 10) //If temp score is less than 0 or temp score + total score is greater than 10.
 			{
                 System.out.println("You Have Entered An Invalid Number. Please Try Again."); //Tells the user they have entered something invalid.

@@ -7,7 +7,7 @@ public class ScoreBoard
         System.out.println("\nThe Final Scores Are: \n"); //Prints the final scores for the users to see.
         for (Player Player:ListOfPlayers) 
 		{
-            System.out.println(Player.getName() + " Your Total Score Is: " + Player.checkPlayerScore()); // Prints out each persons score.
+            System.out.println(Player.getName() + " Your Total Score Is:"); // Prints out each persons score.
             System.out.println("______________________________________________________________"); // Separates the players scores.
             System.out.print("|");
             for (int i = 0; i < 9; i ++) //For the first 9 frames

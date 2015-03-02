@@ -12,7 +12,7 @@ public class BowlingInterface
         String selection = "";
         String Name;
         
-        System.out.println("Please Enter Your name:"); //Asks for the players name.
+        System.out.println("Please Enter Your Name:"); //Asks for the players name.
         Name = new BufferedReader(new InputStreamReader(System.in)).readLine(); //Reads the user input.
         PlayerList.add(new Player(Name)); //Adds that name to the player list.
         
@@ -52,19 +52,21 @@ public class BowlingInterface
 		
         for (int i=0; i<9; i++) //Frames from 1-9.
 		{
-            System.out.println("\n---Frame " + (i + 1) + " Has Started---"); //Prints the frame that has begun.
+            System.out.println("\n----------Frame " + (i + 1) + " Has Started----------"); //Prints the frame that has begun.
             for (Player Player:PlayerList) //Gets players in the the player list.
 			{
                 Background.BowlFrame(Player, i); //Does the frame through all the players on the player list.
+				System.out.println("\n-------------------------");
             }
         }
 		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-        System.out.println("\n---Final Frame Has Started---"); //Final frame.
+        System.out.println("\n-----------Final Frame Has Started----------"); //Final frame.
         for (Player Player:PlayerList) //Gets players in the the player list.
 		{
             Background.LastFrame(Player, 9); //Does the final frame through all the players on the player list.
+			System.out.println("\n-------------------------");
         }
         
         final ScoreBoard Scoreboard = new ScoreBoard(); //Gets the scoreboard.
