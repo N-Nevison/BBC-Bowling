@@ -230,4 +230,4 @@ public class Background
         } 
        return tempScore;
     } // end GetScore method for bonus round
-}
+}//END
